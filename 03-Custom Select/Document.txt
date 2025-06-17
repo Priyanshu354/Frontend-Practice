@@ -1,0 +1,46 @@
+📦 CustomSelect Component Documentation
+A fully customizable, keyboard-accessible country select dropdown built using React and Tailwind CSS. Includes flag icons, 
+arrow-key navigation, outside click handling, and alphabet key jumps.
+
+✨ Features
+✅ 1. Country Fetching
+-> Fetches all countries using REST Countries API.
+-> Retrieves country name and flag (SVG).
+-> Sorts country names alphabetically.
+
+✅ 2. Custom Dropdown Design
+-> Completely custom-styled dropdown (no native <select>).
+-> Integrated with react-icons (IoIosArrowDropdownCircle for dropdown arrow).
+-> Smooth design with TailwindCSS, hover effects, and a scrollable dropdown.
+
+✅ 3. Keyboard Navigation
+-> Supports keyboard input:
+-> ↑ / ↓ to navigate through options.
+-> Enter to select the highlighted option.
+-> Pressing any letter key jumps to the first country starting with that letter (using a binary search via lowerBound()).
+
+✅ 4. Click Outside to Close
+-> Closes dropdown when user clicks outside the component using useRef and mousedown event listener.
+
+✅ 5. Scroll Into View
+-> Automatically scrolls the highlighted option into view during keyboard navigation.
+
+✅ 6. Accessible & Responsive
+-> Fully keyboard-accessible.
+-> Clean mobile-compatible design with Tailwind CSS responsiveness in mind.
+
+🧠 Hooks & Logic Used
+Feature	                            Hook/Logic
+Dropdown open state	        ->      useState(selectOpen)
+Selected country	        ->      useState(selectedCountryName)
+Outside click detection	    ->      useRef + useEffect + mousedown
+Keyboard navigation	        ->      keydown listener on document
+Highlighted item	        ->      useState(highlightedText)
+Scroll into view	        ->      useRef(optionRefs) + scrollIntoView()
+Alphabet jump	            ->      Binary search via lowerBound()
+
+Future Improvent / Revision Task :- Add these
+1. Multiple custom Select
+2. Add search input to filter countries
+3. Custom Styling
+4. Tab Navigation
