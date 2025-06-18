@@ -1,0 +1,17 @@
+Features :-
+1. Multiple step form 
+2. Dynamic Progess bar
+3. Frontend Form Validation
+4. Presit Data Throgh progess 
+5. Dyanmic Hobby input
+6. Email & number Validation Throgh regex
+
+
+Future Improvement / Revision Task :-
+1. Auto-Save on Blur -> Auto-save data to local storage or backend API when the user leaves a field.
+2. Draft Resume Feature -> Save partially filled forms and allow users to resume later.
+3. Form Prefill from Previous Data -> Fetch previously saved data and pre-fill forms.
+4. Keyboard Navigation
+5. Make Full Job Form
+6. Better Mobile Responsiveness
+7. Toasts or Inline Confirmation

@@ -9,10 +9,27 @@ import { MdOutlineDescription } from "react-icons/md";
 
 const Stepper = () => {
     const [step, setStep] = useState(0);
-    const steps = [<PersonalDetails setStep={setStep}/>, <Contact setStep={setStep}/>, 
-    <Education setStep={setStep}/>, <Description setStep={setStep}/>];
     const [lineHeight, setLineHeight] = useState(0);
     const stepRef = useRef([]);
+
+    const [personalData, setPersonalData] = useState({
+        firstName: "",
+        lastName: "",
+        dob: "",
+        fatherName: "",
+        motherName: "",
+        hobbies: [],
+    });
+
+    const [contactDetails, setContactDetails] = useState({
+        email: "",
+        mobNo: "",
+        personalNo : "",
+    })
+
+    const steps = [<PersonalDetails setStep={setStep} formData={personalData} setFormData={setPersonalData}/>, 
+    <Contact setStep={setStep} contactDetails={contactDetails} setContactDetails={setContactDetails} />, 
+    <Education setStep={setStep}/>, <Description setStep={setStep}/>];
 
     useEffect(() => {
         const calculateOffsets = () => {
@@ -109,7 +126,7 @@ const Stepper = () => {
             </div>
 
             {/* Main Content */}
-            <div className='w-full min-h-screen py-10 flex flex-col px-10'>
+            <div className='w-full min-h-screen md:p-10 flex flex-col p-4'>
                 {CurrentComponent}
             </div>
         </div>
