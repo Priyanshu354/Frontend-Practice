@@ -1,0 +1,12 @@
+✅ Features of ToastProvider Context
+
+✅ Global Toast Context – Easily trigger toasts from anywhere in your React app using useToast().
+✅ Auto-Dismiss – Toasts automatically disappear after 3 seconds.
+✅ Custom Toast Types – Supports different toast types like info, success, error, and warning.
+✅ Position-Based Rendering – Toasts can appear at top-left, top-right, bottom-left, or bottom-right.
+✅ Unique Toast IDs – Each toast is uniquely identified using a timestamp.
+✅ Manual Dismiss – Users can manually close any toast via the onClose handler.
+✅ Stackable Toasts – Multiple toasts can stack within their respective positions.
+✅ Reusable Toast Component – Designed to work with a reusable and customizable <Toast /> component.
+✅ Fixed & Responsive Positioning – Toasts use fixed positioning with z-50 for visibility over UI.
+✅ Clean Separation of Logic and UI – Logic (context) and UI (Toast) are decoupled for flexibility.

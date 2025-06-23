@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+.Info{
+    background-color: blue;
+    color: white;
+}
+
+.Warning{
+    background-color: yellow;
+    color: black;
+}
+
+.Error{
+    background-color: red;
+    color: white;
+}
+
+.Success{
+    background-color: green;
+    color: white;
+}
