@@ -1,0 +1,9 @@
+Features I used :-
+1. Drag and drop tasks between sections using HTML5 dataTransfer.
+2. Use Object.entries() to dynamically map through data sections.
+
+Revision Task :- 
+1. Use ref for data dataTransfer.
+2. Add todo list options
+3. add keyboard functionality. 
+4. Deep copy of data Array Good For React.
