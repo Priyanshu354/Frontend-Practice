@@ -1,0 +1,12 @@
+Features :- 
+Customizable Star Count – Accepts a number prop to render any number of stars.
+Hover Preview – Highlights stars up to the one being hovered for instant visual feedback.
+Click to Select – Allows users to click a star to set their rating permanently.
+Persistent State – Remembers the selected rating even after the mouse leaves.
+Dynamic Styling – Changes star colors based on hover and click states.
+Smooth Transitions – Applies ease-in-out transition for a fluid user experience.
+Ref-Based DOM Access – Uses useRef to access and manipulate DOM elements.
+Reusable Component – Easily reusable in different parts of a React application.
+
+Revision :-
+Focus on optimized Version.
