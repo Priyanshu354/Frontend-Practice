@@ -1,0 +1,81 @@
+OTP Component Documentation
+1️⃣ Features You Have Implemented
+
+✅ OTP Digit Management
+Allows entry of size-length OTP using individual input boxes.
+Uses controlled components (useState) for each OTP digit.
+Uses useRef to programmatically focus on inputs.
+
+✅ Automatic Focus Movement
+Moves focus to the next input automatically after a valid digit is entered.
+Supports left (ArrowLeft) and right (ArrowRight) navigation between OTP boxes using the keyboard.
+
+✅ Valid Digit Filtering
+Filters out non-numeric input (ignores letters, symbols).
+Handles pasting multiple digits, only taking the relevant new digit for the current index.
+Prevents duplicate digit entry in the same box.
+
+✅ Backspace & Delete Handling
+Clears the current box on Backspace or Delete.
+Allows the user to re-enter the value easily.
+
+✅ Click-to-Focus
+Clicking on any input box sets the current index for editing.
+
+✅ Styling
+Clean, large input boxes (w-14 h-14, text-5xl) with clear focus indicators.
+
+Responsive horizontal layout using Tailwind (flex gap-1).
+
+2️⃣ Potential Improvements
+🔹 Paste Handling for Full OTP
+Currently, pasting a full OTP across boxes is not handled.
+Improvement: On paste, split the entire OTP into boxes automatically.
+
+🔹 Validation and Submission
+Add validation to check:
+All boxes filled.
+Optional OTP format validation.
+Add a submit button with onSubmit to handle OTP verification.
+
+🔹 Error Feedback
+Show visual feedback for:
+Invalid inputs.
+Incomplete OTP during submission.
+Wrong OTP (on API verification).
+
+🔹 Accessibility Improvements
+Add aria-label and inputMode="numeric" for better mobile accessibility.
+Handle Tab and Shift+Tab for smoother keyboard navigation.
+
+🔹 Enhanced Keyboard Handling
+On Backspace:
+If the current box is empty, move focus back to the previous box.
+Clear the previous box if needed.
+On ArrowUp and ArrowDown (optional): ignore or provide controlled behavior.
+
+🔹 Mobile Optimization
+Increase touch target areas.
+Use type="tel" instead of type="text" for better mobile numeric keyboards.
+
+🔹 Visual Enhancements
+Animate focus transitions for smoother UX.
+Use different border colors for filled vs. empty boxes.
+
+🔹 Reusable Callback
+Accept an onComplete prop:
+Calls back with the full OTP when all boxes are filled automatically.
+
+🔹 Unit & Integration Testing
+Add tests using React Testing Library:
+Simulate user typing and pasting.
+Test navigation and backspace behavior.
+Test onComplete callback on full entry.
+
+3️⃣ Example Features for Next Level
+✅ Add Auto-Focus on Mount on the first box.
+✅ Mask OTP for secure input if needed (type="password").
+✅ Add resend OTP timer integration.
+✅ Support for copying OTP programmatically if needed for dev tools.
+✅ Make it fully reusable with props:
+onChange, onComplete, inputClassName, containerClassName, etc.
