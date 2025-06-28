@@ -1,0 +1,25 @@
+🚀 Useful Improvements
+✅ Throttle / Debounce Scroll Handler
+Prevent excessive calls during fast scrolling to improve performance and avoid duplicate fetches.
+
+✅ Loading Spinner
+Show a loader while new images are loading to indicate progress to the user.
+
+✅ Error Handling
+Add basic error fallback in case image fetches fail (e.g., network issues).
+
+✅ Intersection Observer API
+Replace scroll event with IntersectionObserver for smoother and modern infinite scroll triggering with better performance.
+
+✅ Lazy Loading (loading="lazy")
+Use native image lazy loading to save bandwidth and improve initial load performance.
+
+✅ Custom Hook (useInfiniteScroll)
+Refactor scroll logic into a clean reusable hook, improving readability and reuse in other projects.
+
+✅ Real API Fetching Practice
+Replace URL generation with an actual fetch call to practice API integration and learn practical data fetching patterns.
+
+✅ Accessibility Improvement
+Add meaningful alt text or structured default descriptions for better accessibility and a professional finish.
+

@@ -1,0 +1,70 @@
+📄 Features:
+✅ Uses React Router v6 for SPA routing.
+✅ Includes Home, About, Dashboard, Profile, Setting, and NotFound pages.
+✅ Implements nested routes under /dashboard for Profile and Setting.
+✅ Uses React.lazy() for code-splitting and lazy-loading Dashboard and Profile pages.
+✅ Uses **<Suspense fallback={<div>Loading...</div>}> to show fallback UI during lazy-loading.
+✅ Includes a reusable Navbar for navigation across pages.
+✅ Fallback NotFound page handles unknown routes gracefully.
+✅ Clean component structure for scalable routing architecture.
+
+Challenge :-
+
+🏆 Lazy Loading Gallery Challenge (Day 9–10)
+Goal:
+Build a Photo Gallery App with React Router + React.lazy + Suspense, simulating real-world lazy-loading and fallback handling.
+
+✅ Requirements:
+1️⃣ Create a React Router App with these routes:
+/ → Home Page
+/gallery → Gallery Page
+/gallery/:id → Single Photo Detail Page
+
+2️⃣ Lazy-load the following pages:
+Gallery page
+PhotoDetail page
+
+using:
+jsx
+Copy
+Edit
+const Gallery = React.lazy(() => import('./Gallery'));
+const PhotoDetail = React.lazy(() => import('./PhotoDetail'));
+
+
+3️⃣ Wrap these routes inside:
+jsx
+Copy
+Edit
+<Suspense fallback={<div>Loading...</div>}>
+  <Routes>
+    ...
+  </Routes>
+</Suspense>
+
+
+4️⃣ Gallery Page:
+Display 12 dummy images (use Picsum or any static array of images).
+Clicking on an image navigates to /gallery/:id to view it in detail.
+
+5️⃣ PhotoDetail Page:
+Extract id from URL (useParams).
+Display the large version of the image with id.
+
+6️⃣ Simulate Network Throttling:
+Use Chrome DevTools > Network > Slow 3G.
+Refresh the page and confirm fallback loader is visible while Gallery/PhotoDetail are lazy-loaded.
+
+✅ Stretch Goals (Optional):
+🔹 Replace fallback with a spinner or skeleton loader.
+🔹 Use Framer Motion for smooth image transitions on navigation.
+🔹 Add pagination or infinite scroll to the Gallery Page.
+🔹 Deploy on Vercel/Netlify and test lazy-loading in production.
+🔹 Preload images on hover using import() for advanced practice.
+🔹 Add error boundaries to catch and display lazy-loading errors gracefully.
+
+✅ What You Will Learn:
+✅ Practical React.lazy + Suspense usage with React Router.
+✅ Handling network delays for real user conditions.
+✅ Structuring dynamic routes with nested parameters.
+✅ Building a clean, scalable gallery layout for your portfolio.
