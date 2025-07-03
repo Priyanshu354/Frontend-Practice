@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Modal from './Modal';
+import ModalRev from './assets/Revision/ModalRev';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ function App() {
       <button 
       onClick={handleIsOpen}
       className='p-2 text-md bg-blue-600 rounded-lg text-white font-semibold'>POPUP</button>
-      {(isOpen) && <Modal setIsOpen={setIsOpen} isOpen={isOpen}/>}
+      {(isOpen) && <ModalRev setIsOpen={setIsOpen} isOpen={isOpen}/>}
     </div>
     </>
   )
