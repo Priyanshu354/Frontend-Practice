@@ -17,3 +17,5 @@
     - Tab/Shift+Tab for navigation
 - Use React createPortal to render modals outside the parent tree for z-index isolation.
 - Animate open/close transitions using Framer Motion or CSS transitions for smoothness.
+
+# All are implemented in this modal.
