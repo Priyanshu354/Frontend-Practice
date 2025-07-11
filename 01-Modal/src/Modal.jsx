@@ -1,76 +1,71 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 
-const Modal = ({setIsOpen, isOpen}) => {
+const Modal = ({ isOpen, onClose, children, triggerRef }) => {
+  const modalRef = useRef(null);
+  const modalroot = document.getElementById('modal-root');
 
-    const [inputValue, setInputValue] = useState("");
-    const outSideClick = useRef();
-    const handleValue = (value) =>{
-        setInputValue(value);
-    }
+  useEffect(() => {
+    if (isOpen) {
+      const focusableElements = modalRef.current.querySelectorAll(
+        'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      );
 
-    const handleSubmit = () => {
-        if(inputValue === ""){
-            alert("Please Input Your Name Before Submit");
-            return;
-        }
-        setIsOpen(false);
-    }
+      if (focusableElements.length) {
+        focusableElements[0].focus();
+      }
 
-    useEffect(()=> {
-        const handleOutSideClick = (e) => {
-            if (outSideClick.current && !outSideClick.current.contains(e.target)){
-                setIsOpen(false);
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') onClose();
+
+        if (e.key === 'Tab' && focusableElements.length > 0) {
+          const first = focusableElements[0];
+          const last = focusableElements[focusableElements.length - 1];
+
+          if (e.shiftKey) {
+            if (document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
             }
-        };
-
-        const handleEscKey = (e) => {
-            if(e.key === 'Escape'){
-                setIsOpen(false);
+          } else {
+            if (document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
             }
-        };
-
-        if(isOpen){
-            document.addEventListener("keydown", handleEscKey);
-            document.addEventListener("mousedown", handleOutSideClick);
+          }
         }
+      };
 
-        return () => {
-            document.removeEventListener("keydown", handleEscKey);
-            document.removeEventListener("mousedown", handleOutSideClick);
-        };
-    }, [isOpen]);
+      document.addEventListener('keydown', handleKeyDown);
 
-  return (
-    <div className='fixed inset-0 backdrop-blur-sm bg-black/30 flex justify-center items-center flex-col'>
-        <div
-        ref={outSideClick} 
-        className='h-auto w-auto bg-white p-6 flex flex-col gap-6'>
-            <div 
-            onClick={() => setIsOpen(false)}
-            className='text-2xl text-black font-bold cursor-pointer text-end'> X </div>
-            <p className='text-md text-black'>
-                This is the Modal Pop UP Content.
-            </p>
-            <div>
-                <label htmlFor="modalInput" className="text-sm mb-2 font-bold mt-4 text-gray-700">
-                Enter your Name:
-                </label>
-                <input
-                id='modalInput'
-                onChange={(e) => handleValue(e.target.value)}
-                type="text" value={inputValue}
-                className='border border-gray-300 rounded w-full p-2'/>
-            </div>
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown);
+        if (triggerRef?.current) {
+          triggerRef.current.focus();
+        }
+      };
+    }
+  }, [isOpen, onClose, triggerRef]);
 
-            <div className='flex'>
-                <button 
-                onClick={handleSubmit}
-                className='bg-green-500 text-white rounded-sm text-md font-semibold p-2'> Submit </button>
-            </div>
-        </div>
+  if (!isOpen) return null;
 
-    </div>
-  )
-}
+  return createPortal(
+    <div
+      className="fixed inset-0 bg-black/50 flex justify-center items-center"
+      role="dialog"
+      aria-modal="true"
+      onClick={onClose}
+    >
+      <div
+        ref={modalRef}
+        className="bg-white p-6 rounded shadow max-w-md w-full"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {children}
+      </div>
+    </div>,
+    modalroot
+  );
+};
 
-export default Modal
+export default Modal;
